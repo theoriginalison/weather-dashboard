@@ -23,8 +23,41 @@
     <nav class="navbar navbar-dark bg-dark justify-content-center">
       <span class="navbar-brand mb-0 h1" id="navText">Weather Dashboard</span>
     </nav>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <div class="container">
+      <div class="row" id="mainRow">
+        <div class="col-sm-3" id="searchColumn sticky-sidebar">
+          Search for a City:
+          <!-- need the search bar here -->
+          <div class="card" style="width: 18rem">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm" id="resultColumn main">
+            <div class="row" id="today">
+                <div class="card" style="width: 18rem">
+                    <div class="card-body col big-box">
+                    <h3 class="card-title">City Name</h5>
+                    <p class="card-text">
+                        Some quick example text to build on the card title and make up
+                        the bulk of the card's content.
+                    </p>
+                    </div>
+                    </div>
+                <div class="row" id="today">
+                    <div class="col">
+                    <h3>5-Day Forecast:</h3></div>
+                 </div>
+
+                </div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
