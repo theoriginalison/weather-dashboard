@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -27,7 +25,9 @@
     <div class="container">
       <div class="row" id="mainRow">
         <aside class="col-sm-3" id="searchColumn sticky-sidebar">
-          <h5>Search for a City:</h5>
+            <div class="row" id="searchBar">
+            <h5>Search for a City:</h5>
+            <!-- Can't put the search button on the same line as the search bar -->
           <label class="sr-only" for="inlineFormInputName">Name</label>
           <input
             type="text"
@@ -37,6 +37,9 @@
           />
           <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
             </br>
+        </div>
+        <!-- Need these to be the width of the column -->
+        <div class="row" id="previousSearchList">
           <div class="card">
             <ul class="list-group list-group-flush" id="searchedCities">
               <li class="list-group-item">Cras justo odio</li>
@@ -44,53 +47,93 @@
               <li class="list-group-item">Vestibulum at eros</li>
             </ul>
           </div>
+        </div>
         </aside>
         <main class="col-sm" id="resultColumn main">
           <div class="row" id="today">
-            <div class="col">
-              <div class="card">
-                <div class="card-body big-box">
-                  <h3 class="card-title">City Name</h3>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+            <div class="col" id="todayWidth">
+              <div class="card" style="max-width: 50rem;">
+                <div class="card-body big-box currentCityBox" >
+                  <h3 class="card-title" id="cityNameText">City Name</h3>
+                  <p class="card-text currentTemp" >
+                    Current Temperature
+                  </p>
+                  <p class="card-text currentHumidity" >
+                    Current Humidity
+                  </p>
+                  <p class="card-text currentWind" >
+                    Current Wind Speed
+                  </p>
+                  <p class="card-text currentUV" >
+                    Current UV Index
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row" id="today">
-            <div class="col" id="forecast">
+        </br>
+          <div class="row">
+            <div class="col" id="forecastHeader">
                 <div class="row">
                     <h3>5-Day Forecast:</h3>
                 </div>
-        <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-            <div class="card-body fiveDay">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-            <div class="card-body fiveDay">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="row" id="forecastRow">
+            <div class="card-deck" >
+                <div class="card text-white bg-primary mb-3">
+                  
+                  <div class="card-body fiveDayCard" id="dayOne">
+                    <h5 class="card-title dateText">Date text</h5>
+                    <img src="..." class="card-img-top" id="weatherIcon" alt="...">
+                    <p class="card-text tempText">Temp text</p>
+                    <p class="card-text humidityText">Humidity text</p>
+                  </div>
+                </div>
+
+                <div class="card text-white bg-primary mb-3">
+                  
+                  <div class="card-body fiveDayCard" id="dayTwo">
+                    <h5 class="card-title dateText">Date text</h5>
+                    <img src="..." class="card-img-top" id="weatherIcon" alt="...">
+                    <p class="card-text tempText">Temp text</p>
+                    <p class="card-text humidityText">Humidity text</p>
+                  </div>
+                </div>
+                <div class="card text-white bg-primary mb-3">
+                  
+                    <div class="card-body fiveDayCard" id="dayThree">
+                        <h5 class="card-title dateText">Date text</h5>
+                        <img src="..." class="card-img-top" id="weatherIcon" alt="...">
+                        <p class="card-text tempText">Temp text</p>
+                        <p class="card-text humidityText">Humidity text</p>
+                      </div>
+                </div>
+                <div class="card text-white bg-primary mb-3">
+                  
+                    <div class="card-body fiveDayCard" id="dayFour">
+                        <h5 class="card-title dateText">Date text</h5>
+                        <img src="..." class="card-img-top" id="weatherIcon" alt="...">
+                        <p class="card-text tempText">Temp text</p>
+                        <p class="card-text humidityText">Humidity text</p>
+                      </div>
+                  </div>
+                  <div class="card text-white bg-primary mb-3">
+                  
+                    <div class="card-body fiveDayCard" id="dayFive">
+                        <h5 class="card-title dateText">Date text</h5>
+                        <img src="..." class="card-img-top" id="weatherIcon" alt="...">
+                        <p class="card-text tempText">Temp text</p>
+                        <p class="card-text humidityText">Humidity text</p>
+                      </div>
+                  </div>
               </div>
-              <div class="card-body fiveDay">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <div class="card-body fiveDay">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <div class="card-body fiveDay">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-          </div>
+        </div>
+          </main>
             </div>
-          </div>
-        </main>
-      </div>
     </div>
+
+    
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

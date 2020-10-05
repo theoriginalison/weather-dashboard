@@ -17,7 +17,23 @@
   margin: 5px;
 }
 
-.fiveDay {
+.fiveDaycol {
+  margin: 5px;
 }
 
+#todayWidth {
+  padding: 0px;
+}
+
+.fiveDayCard {
+  padding: 5px;
+}
+
+.currentCityBox {
+  padding: 15px;
+}
+
+aside {
+  margin-right: 20px;
+}
 /* need margin auto for cards to be the width of the container */
