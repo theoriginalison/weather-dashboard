@@ -2,9 +2,22 @@
   font-size: 2.5em;
 }
 
+#mainRow {
+  padding-top: 10px;
+}
+
+/* none of this works */
 #sticky-sidebar {
   background-color: purple;
+  color: #8000800;
   float: left;
+}
+
+.container {
+  margin: 5px;
+}
+
+.fiveDay {
 }
 
 /* need margin auto for cards to be the width of the container */

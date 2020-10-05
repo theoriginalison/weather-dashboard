@@ -27,10 +27,18 @@
     <div class="container">
       <div class="row" id="mainRow">
         <aside class="col-sm-3" id="searchColumn sticky-sidebar">
-          Search for a City:
-          <!-- need the search bar here -->
-          <div class="card" style="width: 18rem">
-            <ul class="list-group list-group-flush">
+          <h5>Search for a City:</h5>
+          <label class="sr-only" for="inlineFormInputName">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inlineFormInputName"
+            placeholder="My City"
+          />
+          <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </br>
+          <div class="card">
+            <ul class="list-group list-group-flush" id="searchedCities">
               <li class="list-group-item">Cras justo odio</li>
               <li class="list-group-item">Dapibus ac facilisis in</li>
               <li class="list-group-item">Vestibulum at eros</li>
@@ -40,7 +48,7 @@
         <main class="col-sm" id="resultColumn main">
           <div class="row" id="today">
             <div class="col">
-              <div class="card" style="width: 18rem">
+              <div class="card">
                 <div class="card-body big-box">
                   <h3 class="card-title">City Name</h3>
                   <p class="card-text">
@@ -52,8 +60,32 @@
             </div>
           </div>
           <div class="row" id="today">
-            <div class="col">
-              <h3>5-Day Forecast:</h3>
+            <div class="col" id="forecast">
+                <div class="row">
+                    <h3>5-Day Forecast:</h3>
+                </div>
+        <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+            <div class="card-body fiveDay">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <div class="card-body fiveDay">
+                <h5 class="card-title">Primary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <div class="card-body fiveDay">
+                <h5 class="card-title">Primary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <div class="card-body fiveDay">
+                <h5 class="card-title">Primary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <div class="card-body fiveDay">
+                <h5 class="card-title">Primary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+          </div>
             </div>
           </div>
         </main>
@@ -75,5 +107,6 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/941444bb10.js" crossorigin="anonymous"></script>
   </body>
 </html>
