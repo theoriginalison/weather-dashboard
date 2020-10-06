@@ -32,11 +32,17 @@ $(document).ready(function () {
         d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
       var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
-      //.html might not work bc you're not adding a whole element!
       $("#cityNameText").html(response.Name + todaysDate);
-      $(".currentTemp").html(tempF);
-      $(".currentWind").html(response.wind);
+      $(".currentHumidity").html("Current Humidity: " + response.main.humidity);
+      $(".currentTemp").html("Current Temperature: " + tempF);
+      $(".currentWind").html(
+        "Current Wind Speed: " + response.wind.speed + "mph"
+      );
       //   $(".currentUV").html.(response.)
     });
   });
 });
+
+//use lat and long from this API to get the ONE CALL API, then use the same .html appending to enter that info-- just a LOT of it-- you need th
+
+//LUXON for the date (or moment-- that's fine, too)

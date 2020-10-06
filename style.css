@@ -7,9 +7,9 @@
 }
 
 /* none of this works */
-#sticky-sidebar {
-  background-color: purple;
-  color: #8000800;
+.sticky-sidebar {
+  background-color: rgb(16, 32, 107);
+  color: purple;
   float: left;
 }
 
@@ -35,5 +35,9 @@
 
 aside {
   margin-right: 20px;
+}
+
+#previousSearchList {
+  margin-top: 20px;
 }
 /* need margin auto for cards to be the width of the container */

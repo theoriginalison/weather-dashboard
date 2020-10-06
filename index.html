@@ -1,157 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Weather Dashboard</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-dark justify-content-center">
-      <span class="navbar-brand mb-0 h1" id="navText">Weather Dashboard</span>
-    </nav>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <div class="container">
-      <div class="row" id="mainRow">
-        <aside class="col-sm-3" id="searchColumn sticky-sidebar">
-            <div class="row" id="searchRow">
-            <h5>Search for a City:</h5>
-            <!-- Can't put the search button on the same line as the search bar -->
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark justify-content-center">
+    <span class="navbar-brand mb-0 h1" id="navText">Weather Dashboard</span>
+  </nav>
+
+  <div class="container">
+    <div class="row" id="mainRow">
+      <aside class="col-sm-3 sticky-sidebar" id="searchColumn">
+        <div class="row" id="searchRow">
+          <h5>Search for a City:</h5>
+          <!-- Can't put the search button on the same line as the search bar -->
           <label class="sr-only" for="searchedCity">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="searchedCity"
-            placeholder="My City"
-          />
+          <input type="text" class="form-control" style="width: 75%;" id="searchedCity" placeholder="My City" />
           <button type="submit" class="btn btn-primary" id="searchBtn"><i class="fas fa-search"></i></button>
-            </br>
+          </br>
         </div>
-        <!-- Need these to be the width of the column -->
         <div class="row" id="previousSearchList">
+
+          <!-- make these become buttons instead -->
           <div class="card">
             <ul class="list-group list-group-flush" id="searchedCities">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-group-item">Searched cities</li>
+              <li class="list-group-item">will appear</li>
+              <li class="list-group-item">in this list.</li>
             </ul>
           </div>
         </div>
-        </aside>
-        <main class="col-sm" id="resultColumn main">
-          <div class="row" id="today">
-            <div class="col" id="todayWidth">
-              <div class="card" style="max-width: 50rem;">
-                <div class="card-body big-box currentCityBox" >
-                  <h3 class="card-title" id="cityNameText">City Name</h3>
-                  <p class="card-text currentTemp" >
-                    Current Temperature
-                  </p>
-                  <p class="card-text currentHumidity" >
-                    Current Humidity
-                  </p>
-                  <p class="card-text currentWind" >
-                    Current Wind Speed
-                  </p>
-                  <p class="card-text currentUV" >
-                    Current UV Index
-                  </p>
-                </div>
+      </aside>
+      <main class="col-sm" id="resultColumn main">
+        <div class="row" id="today">
+          <div class="col" id="todayWidth">
+            <div class="card" style="max-width: 50rem;">
+              <div class="card-body big-box currentCityBox">
+                <h3 class="card-title" id="cityNameText">City Name</h3>
+                <p class="card-text currentTemp">
+                  Current Temperature
+                </p>
+                <p class="card-text currentHumidity">
+                  Current Humidity
+                </p>
+                <p class="card-text currentWind">
+                  Current Wind Speed
+                </p>
+                <p class="card-text currentUV">
+                  Current UV Index
+                </p>
               </div>
             </div>
           </div>
+        </div>
         </br>
-          <div class="row">
-            <div class="col" id="forecastHeader">
-                <div class="row">
-                    <h3>5-Day Forecast:</h3>
-                </div>
+        <div class="row">
+          <div class="col" id="forecastHeader">
+            <div class="row">
+              <h3>5-Day Forecast:</h3>
             </div>
+          </div>
         </div>
         <div class="row" id="forecastRow">
-            <div class="card-deck" >
-                <div class="card text-white bg-primary mb-3">
-                  
-                  <div class="card-body fiveDayCard" id="dayOne">
-                    <h5 class="card-title dateText">Date text</h5>
-                    <img src="" class="card-img-top" id="weatherIcon" alt="">
-                    <p class="card-text tempText">Temp text</p>
-                    <p class="card-text humidityText">Humidity text</p>
-                  </div>
-                </div>
+          <div class="card-deck">
+            <div class="card text-white bg-primary mb-3">
 
-                <div class="card text-white bg-primary mb-3">
-                  
-                  <div class="card-body fiveDayCard" id="dayTwo">
-                    <h5 class="card-title dateText">Date text</h5>
-                    <img src="" class="card-img-top" id="weatherIcon" alt="">
-                    <p class="card-text tempText">Temp text</p>
-                    <p class="card-text humidityText">Humidity text</p>
-                  </div>
-                </div>
-                <div class="card text-white bg-primary mb-3">
-                  
-                    <div class="card-body fiveDayCard" id="dayThree">
-                        <h5 class="card-title dateText">Date text</h5>
-                        <img src="" class="card-img-top" id="weatherIcon" alt="">
-                        <p class="card-text tempText">Temp text</p>
-                        <p class="card-text humidityText">Humidity text</p>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary mb-3">
-                  
-                    <div class="card-body fiveDayCard" id="dayFour">
-                        <h5 class="card-title dateText">Date text</h5>
-                        <img src="" class="card-img-top" id="weatherIcon" alt="">
-                        <p class="card-text tempText">Temp text</p>
-                        <p class="card-text humidityText">Humidity text</p>
-                      </div>
-                  </div>
-                  <div class="card text-white bg-primary mb-3">
-                  
-                    <div class="card-body fiveDayCard" id="dayFive">
-                        <h5 class="card-title dateText">Date text</h5>
-                        <img src="" class="card-img-top" id="weatherIcon" alt="">
-                        <p class="card-text tempText">Temp text</p>
-                        <p class="card-text humidityText">Humidity text</p>
-                      </div>
-                  </div>
+              <div class="card-body fiveDayCard" id="dayOne">
+                <h5 class="card-title dateText">Date text</h5>
+                <img src="" class="card-img-top" id="weatherIcon" alt="">
+                <p class="card-text tempText">Temp text</p>
+                <p class="card-text humidityText">Humidity text</p>
               </div>
-        </div>
-          </main>
             </div>
+
+            <div class="card text-white bg-primary mb-3">
+
+              <div class="card-body fiveDayCard" id="dayTwo">
+                <h5 class="card-title dateText">Date text</h5>
+                <img src="" class="card-img-top" id="weatherIcon" alt="">
+                <p class="card-text tempText">Temp text</p>
+                <p class="card-text humidityText">Humidity text</p>
+              </div>
+            </div>
+            <div class="card text-white bg-primary mb-3">
+
+              <div class="card-body fiveDayCard" id="dayThree">
+                <h5 class="card-title dateText">Date text</h5>
+                <img src="" class="card-img-top" id="weatherIcon" alt="">
+                <p class="card-text tempText">Temp text</p>
+                <p class="card-text humidityText">Humidity text</p>
+              </div>
+            </div>
+            <div class="card text-white bg-primary mb-3">
+
+              <div class="card-body fiveDayCard" id="dayFour">
+                <h5 class="card-title dateText">Date text</h5>
+                <img src="" class="card-img-top" id="weatherIcon" alt="">
+                <p class="card-text tempText">Temp text</p>
+                <p class="card-text humidityText">Humidity text</p>
+              </div>
+            </div>
+            <div class="card text-white bg-primary mb-3">
+
+              <div class="card-body fiveDayCard" id="dayFive">
+                <h5 class="card-title dateText">Date text</h5>
+                <img src="" class="card-img-top" id="weatherIcon" alt="">
+                <p class="card-text tempText">Temp text</p>
+                <p class="card-text humidityText">Humidity text</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
+  </div>
 
-    
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://kit.fontawesome.com/941444bb10.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/941444bb10.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
