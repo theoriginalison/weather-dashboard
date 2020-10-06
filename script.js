@@ -19,6 +19,13 @@ $(document).ready(function () {
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
-    //ajax goes here
+    console.log(queryURL);
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+    });
   });
 });
