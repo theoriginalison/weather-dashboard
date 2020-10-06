@@ -31,11 +31,12 @@ $(document).ready(function () {
       var todaysDate =
         d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
-      var tempF = (response.main.temp - 273.15) * 1.8 + 32;
+      var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
+      //.html might not work bc you're not adding a whole element!
       $("#cityNameText").html(response.Name + todaysDate);
-      $("#currentTemp").html(tempF);
-      $("#currentWind").html(response.wind);
-      //   $("#currentUV").html.(response.)
+      $(".currentTemp").html(tempF);
+      $(".currentWind").html(response.wind);
+      //   $(".currentUV").html.(response.)
     });
   });
 });
