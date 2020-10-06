@@ -15,7 +15,7 @@ $(document).ready(function () {
     console.log(city);
 
     var queryURL =
-      "api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
@@ -26,6 +26,16 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       console.log(response);
+
+      var d = new Date();
+      var todaysDate =
+        d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+
+      var tempF = (response.main.temp - 273.15) * 1.8 + 32;
+      $("#cityNameText").html(response.Name + todaysDate);
+      $("#currentTemp").html(tempF);
+      $("#currentWind").html(response.wind);
+      //   $("#currentUV").html.(response.)
     });
   });
 });
