@@ -7,6 +7,7 @@ console.log("Here we go! You got this !! :D");
 //**Need Latitude and Longitude from City API*/
 // ONE CALL API Call: https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=1342e1bc1df48134a2a819f9c3969c81
 
+
 $(document).ready(function () {
   $("#searchBtn").on("click", function (event) {
     event.preventDefault();
@@ -36,11 +37,25 @@ $(document).ready(function () {
       var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
       $("#cityNameText").html(response.name + " " + todaysDate);
       $(".currentHumidity").html("Current Humidity: " + response.main.humidity);
-      $(".currentTemp").html("Current Temperature: " + tempF);
+      $(".currentTemp").html("Current Temperature: " + tempF + "\xB0 F");
       $(".currentWind").html(
-        "Current Wind Speed: " + response.wind.speed + "mph"
+        "Current Wind Speed: " + response.wind.speed + "MPH"
       );
-      //   $(".currentUV").html.(response.)
+
+      // //Five Day Forecast - date, temp, humidity
+      // //Day 1
+      //   dayOnetemp = Math.floor((response.daily.temp.day - 273.15) * 1.8 + 32);
+      //   $(".dateText1").html();
+      //   $("#weatherIcon1").html();
+      //   $(".tempText1").html();
+      //   $(".humidityText1").html();
+
+      // //Day 2
+      // //Day 3
+      // //Day 4
+      // //Day 5
+
+
 
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
@@ -52,7 +67,11 @@ $(document).ready(function () {
         url: queryURLBig,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
+        console.log(response.current.uvi);
+        $(".currentUV").html("Current UV Index: " + response.current.uvi)
+        //need uvi as a value?
+        //var uviColor = //need uvi as a value to create an if/else statement w colors for favorable moderate severe--already added in the CSS
+
       });
 
 

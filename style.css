@@ -44,4 +44,15 @@ aside {
 #previousSearchList {
   margin-top: 20px;
 }
-/* need margin auto for cards to be the width of the container */
+
+
+/* Classes for CurrentUV */
+.favorable {
+background-color: green;
+}
+.moderate {
+background-color: yellow;
+}
+.severe {
+background-color: red;
+}
