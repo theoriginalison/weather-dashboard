@@ -41,6 +41,25 @@ $(document).ready(function () {
         "Current Wind Speed: " + response.wind.speed + "mph"
       );
       //   $(".currentUV").html.(response.)
+
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+
+      queryURLBig = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=1342e1bc1df48134a2a819f9c3969c81";
+      console.log(queryURLBig)
+
+      $.ajax({
+        url: queryURLBig,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+      });
+
+
+      //need local storage-- this just sets the item for now, but it's cleared as soon as something new is entered
+      localStorage.setItem("city", city)
+
+      // var storedCities = localStorage.getItem("city"); then prepend each?
     });
   });
 });
