@@ -14,11 +14,7 @@ $(document).ready(function () {
 
     console.log(city);
 
-    //prepending to div here
     $("#previousSearchList").prepend('<button type="button" class="btn btn-primary btn-md btn-block">' + city + '</button>')
-
-    // Need to add these classes: type="button" class="btn btn - primary btn - md btn - block"
-    // $("button").addClass("btn btn-primary btn-md btn-block")
 
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
