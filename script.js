@@ -11,18 +11,32 @@ console.log("Here we go! You got this !! :D");
 $(document).ready(function () {
   $("#searchBtn").on("click", function (event) {
     event.preventDefault();
-    var city = $("#searchedCity").val();
+    //bc this is only taking one city
+    const cities = []
 
-    console.log(city);
+    function saveToStore() {
+      localStorage.setItem("cities", JSON.stringify(cities));
+    }
 
-    $("#previousSearchList").prepend('<button type="button" class="btn btn-primary btn-md btn-block">' + city + '</button>')
+    const city = $("#searchedCity").val();
+
+
+    if (!cities.includes(city)) {
+      cities.push(city);
+      console.log(cities);
+      saveToStore();
+    }
+    for (var i = 0; i < cities.length; i++) {
+      $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block">' + cities[i] + '</button>')
+    }
+    // $("#previousSearchList").prepend('<button type="button" class="btn btn-primary btn-md btn-block">' + city + '</button>')
 
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
-    console.log(queryURL);
+    // console.log(queryURL);
 
     $.ajax({
       url: queryURL,
@@ -76,7 +90,7 @@ $(document).ready(function () {
 
 
       //need local storage-- this just sets the item for now, but it's cleared as soon as something new is entered
-      localStorage.setItem("city", city)
+      //each city needs to be pushed inside of a cities array
 
       // var storedCities = localStorage.getItem("city"); then prepend each?
     });
