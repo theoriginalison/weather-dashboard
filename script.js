@@ -7,8 +7,14 @@ console.log("Here we go! You got this !! :D");
 //**Need Latitude and Longitude from City API*/
 // ONE CALL API Call: https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=1342e1bc1df48134a2a819f9c3969c81
 
-var cities = JSON.parse(localStorage.getItem('cities')) || [];
 $(document).ready(function () {
+  var cities = JSON.parse(localStorage.getItem('cities')) || [];
+  function renderCities() {
+    $("#previousSearchList").empty();
+    for (var i = 0; i < cities.length; i++) {
+      $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block">' + cities[i] + '</button>')
+    }
+  }
   $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     //bc this is only taking one city-- this needs a getItem somehow
@@ -20,20 +26,16 @@ $(document).ready(function () {
 
     var city = $("#searchedCity").val();
 
-    renderCities()
+
 
     if (!cities.includes(city)) {
       cities.push(city);
       console.log(cities);
       saveToStore();
     }
+    renderCities()
     //create this into a function
-    function renderCities() {
-      $("#previousSearchList").empty();
-      for (var i = 0; i < cities.length; i++) {
-        $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block">' + cities[i] + '</button>')
-      }
-    }
+
     // $("#previousSearchList").prepend('<button type="button" class="btn btn-primary btn-md btn-block">' + city + '</button>')
 
     var queryURL =
@@ -102,7 +104,6 @@ $(document).ready(function () {
   });
   renderCities()
 });
-renderCities()
 
 //use lat and long from this API to get the ONE CALL API, then use the same .html appending to enter that info-- just a LOT of it-- you need th
 
