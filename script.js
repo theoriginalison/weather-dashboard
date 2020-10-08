@@ -7,27 +7,32 @@ console.log("Here we go! You got this !! :D");
 //**Need Latitude and Longitude from City API*/
 // ONE CALL API Call: https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=1342e1bc1df48134a2a819f9c3969c81
 
-
+var cities = JSON.parse(localStorage.getItem('cities')) || [];
 $(document).ready(function () {
   $("#searchBtn").on("click", function (event) {
     event.preventDefault();
-    //bc this is only taking one city
-    const cities = []
+    //bc this is only taking one city-- this needs a getItem somehow
+
 
     function saveToStore() {
       localStorage.setItem("cities", JSON.stringify(cities));
     }
 
-    const city = $("#searchedCity").val();
+    var city = $("#searchedCity").val();
 
+    renderCities()
 
     if (!cities.includes(city)) {
       cities.push(city);
       console.log(cities);
       saveToStore();
     }
-    for (var i = 0; i < cities.length; i++) {
-      $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block">' + cities[i] + '</button>')
+    //create this into a function
+    function renderCities() {
+      $("#previousSearchList").empty();
+      for (var i = 0; i < cities.length; i++) {
+        $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block">' + cities[i] + '</button>')
+      }
     }
     // $("#previousSearchList").prepend('<button type="button" class="btn btn-primary btn-md btn-block">' + city + '</button>')
 
@@ -36,7 +41,7 @@ $(document).ready(function () {
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
-    // console.log(queryURL);
+    console.log(queryURL);
 
     $.ajax({
       url: queryURL,
@@ -58,11 +63,11 @@ $(document).ready(function () {
 
       // //Five Day Forecast - date, temp, humidity
       // //Day 1
-      //   dayOnetemp = Math.floor((response.daily.temp.day - 273.15) * 1.8 + 32);
+      //   dayOneTemp = Math.floor((response.daily.temp.day - 273.15) * 1.8 + 32);
       //   $(".dateText1").html();
       //   $("#weatherIcon1").html();
-      //   $(".tempText1").html();
-      //   $(".humidityText1").html();
+      //   $(".tempText1").html("Current Temperature: " + dayOneTemp + "\xB0 F");
+      //   $(".humidityText1").html("Current Humidity: " + response.daily.humidity);
 
       // //Day 2
       // //Day 3
@@ -95,7 +100,9 @@ $(document).ready(function () {
       // var storedCities = localStorage.getItem("city"); then prepend each?
     });
   });
+  renderCities()
 });
+renderCities()
 
 //use lat and long from this API to get the ONE CALL API, then use the same .html appending to enter that info-- just a LOT of it-- you need th
 
