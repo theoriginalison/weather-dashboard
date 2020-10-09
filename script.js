@@ -1,8 +1,3 @@
-console.log("Here we go! You got this !! :D");
-
-//TO DO:
-//UV Index CSS classes for color and the range
-
 $(document).ready(function () {
   var cities = JSON.parse(localStorage.getItem('cities')) || [];
   function renderCities() {
@@ -11,14 +6,14 @@ $(document).ready(function () {
       $("#previousSearchList").append('<button type="button" class="btn btn-primary btn-md btn-block oldCity">' + cities[i] + '</button>')
     }
   }
-  //this is where #previousSearchList
+
   $("#searchBtn").on("click", function (event) {
     event.preventDefault();
 
     function saveToStore() {
       localStorage.setItem("cities", JSON.stringify(cities));
     }
-    //this line below will need to be changed in the copy and paste
+
     var city = $("#searchedCity").val();
 
     if (!cities.includes(city)) {
@@ -33,13 +28,10 @@ $(document).ready(function () {
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
-    console.log(queryURL);
-
     $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
 
       var d = new Date();
       var todaysDate =
@@ -47,32 +39,24 @@ $(document).ready(function () {
 
       var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
       var cityImage = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
-      console.log(cityImage)
-      console.log(response.weather[0].icon)
+
       $("#cityNameText").html(response.name + " " + todaysDate);
       $('.cityImage').append('<img src="' + cityImage + '"/>');
-      $(".currentHumidity").html("Current Humidity: " + response.main.humidity);
+      $(".currentHumidity").html("Current Humidity: " + response.main.humidity + "%");
       $(".currentTemp").html("Current Temperature: " + tempF + "\xB0 F");
       $(".currentWind").html(
         "Current Wind Speed: " + response.wind.speed + "MPH"
       );
 
-
-
-
-
-
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
 
       queryURLBig = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=1342e1bc1df48134a2a819f9c3969c81";
-      console.log(queryURLBig)
 
       $.ajax({
         url: queryURLBig,
         method: "GET",
       }).then(function (response) {
-        console.log(response.current.uvi);
         $(".currentUV").html("Current UV Index: " + response.current.uvi)
 
         var UVNumber = parseFloat(response.current.uvi)
@@ -101,12 +85,10 @@ $(document).ready(function () {
         var dayOneDate = (month + "/" + date + "/" + year)
         var weatherIconOne = "http://openweathermap.org/img/wn/" + response.daily[0].weather[0].icon + "@2x.png"
 
-        console.log(weatherIconOne)
-
         $(".dateText1").html(dayOneDate);
         $("#weatherIcon1").attr("src", weatherIconOne);
         $(".tempText1").html("Temp: " + dayOneTemp + "\xB0 F");
-        $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
+        $(".humidityText1").html("Humidity: " + response.daily[0].humidity + "%");
 
         // //Day 2
         dayTwoTemp = Math.floor((response.daily[1].temp.day - 273.15) * 1.8 + 32);
@@ -122,7 +104,7 @@ $(document).ready(function () {
         $(".dateText2").html(dayTwoDate);
         $("#weatherIcon2").attr("src", weatherIconTwo);
         $(".tempText2").html("Temp: " + dayTwoTemp + "\xB0 F");
-        $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
+        $(".humidityText2").html("Humidity: " + response.daily[1].humidity + "%");
 
         // //Day 3
         dayThreeTemp = Math.floor((response.daily[2].temp.day - 273.15) * 1.8 + 32);
@@ -138,7 +120,7 @@ $(document).ready(function () {
         $(".dateText3").html(dayThreeDate);
         $("#weatherIcon3").attr("src", weatherIconThree);
         $(".tempText3").html("Temp: " + dayThreeTemp + "\xB0 F");
-        $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
+        $(".humidityText3").html("Humidity: " + response.daily[2].humidity + "%");
 
         // //Day 4
         dayFourTemp = Math.floor((response.daily[3].temp.day - 273.15) * 1.8 + 32);
@@ -154,7 +136,7 @@ $(document).ready(function () {
         $(".dateText4").html(dayFourDate);
         $("#weatherIcon4").attr("src", weatherIconFour);
         $(".tempText4").html("Temp: " + dayFourTemp + "\xB0 F");
-        $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
+        $(".humidityText4").html("Humidity: " + response.daily[3].humidity + "%");
 
         // //Day 5
         dayFiveTemp = Math.floor((response.daily[4].temp.day - 273.15) * 1.8 + 32);
@@ -170,7 +152,7 @@ $(document).ready(function () {
         $(".dateText5").html(dayFiveDate);
         $("#weatherIcon5").attr("src", weatherIconFive);
         $(".tempText5").html("Temp: " + dayFiveTemp + "\xB0 F");
-        $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
+        $(".humidityText5").html("Humidity: " + response.daily[4].humidity + "%");
 
       });
 
@@ -178,40 +160,20 @@ $(document).ready(function () {
   });
   renderCities()
 
-
-  //use lat and long from this API to get the ONE CALL API, then use the same .html appending to enter that info-- just a LOT of it-- you need th
-
-  //LUXON for the date (or moment-- that's fine, too)
-  //img.attr("src", "url...")
-
-  //weather icon: http://openweathermap.org/img/wn/{imgherelike10d}@2x.png
-  //"http://openweathermap.org/img/wn/" + response.weather.icon + "@2x.png"
-  //for usual search:
-  //for big search:
-
-
-
-
-  //FOR APPENDED CITIES / SEARCHED CITIES
-
   $("#previousSearchList").on("click", ".oldCity", function (event) {
     event.preventDefault();
 
     var city = $(this).text();
-    console.log(city)
 
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&appid=1342e1bc1df48134a2a819f9c3969c81";
 
-    console.log(queryURL);
-
     $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
 
       var d = new Date();
       var todaysDate =
@@ -219,42 +181,24 @@ $(document).ready(function () {
 
       var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
       var cityImage = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
-      console.log(cityImage)
-      console.log(response.weather[0].icon)
-      $("#cityNameText").html(response.name + " " + todaysDate); // + response.weather.icon - need to create this first as a variable
+
+      $("#cityNameText").html(response.name + " " + todaysDate);
       $('.cityImage').append('<img src="' + cityImage + '"/>')
-      $(".currentHumidity").html("Current Humidity: " + response.main.humidity);
+      $(".currentHumidity").html("Current Humidity: " + response.main.humidity + "%");
       $(".currentTemp").html("Current Temperature: " + tempF + "\xB0 F");
       $(".currentWind").html(
         "Current Wind Speed: " + response.wind.speed + "MPH"
       );
 
-      // //Five Day Forecast - date, temp, humidity
-      // //Day 1
-      //   dayOneTemp = Math.floor((response.daily.temp.day - 273.15) * 1.8 + 32);
-      //   $(".dateText1").html();
-      //   $("#weatherIcon1").html();
-      //   $(".tempText1").html("Current Temperature: " + dayOneTemp + "\xB0 F");
-      //   $(".humidityText1").html("Current Humidity: " + response.daily.humidity);
-
-      // //Day 2
-      // //Day 3
-      // //Day 4
-      // //Day 5
-
-
-
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
 
       queryURLBig = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=1342e1bc1df48134a2a819f9c3969c81";
-      console.log(queryURLBig)
 
       $.ajax({
         url: queryURLBig,
         method: "GET",
       }).then(function (response) {
-        console.log(response.current.uvi);
         $(".currentUV").html("Current UV Index: " + response.current.uvi)
 
         var UVNumber = parseFloat(response.current.uvi)
@@ -283,12 +227,10 @@ $(document).ready(function () {
         var dayOneDate = (month + "/" + date + "/" + year)
         var weatherIconOne = "http://openweathermap.org/img/wn/" + response.daily[0].weather[0].icon + "@2x.png"
 
-        console.log(weatherIconOne)
-
         $(".dateText1").html(dayOneDate);
         $("#weatherIcon1").attr("src", weatherIconOne);
         $(".tempText1").html("Temp: " + dayOneTemp + "\xB0 F");
-        $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
+        $(".humidityText1").html("Humidity: " + response.daily[0].humidity + "%");
 
         // //Day 2
         dayTwoTemp = Math.floor((response.daily[1].temp.day - 273.15) * 1.8 + 32);
@@ -304,7 +246,7 @@ $(document).ready(function () {
         $(".dateText2").html(dayTwoDate);
         $("#weatherIcon2").attr("src", weatherIconTwo);
         $(".tempText2").html("Temp: " + dayTwoTemp + "\xB0 F");
-        $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
+        $(".humidityText2").html("Humidity: " + response.daily[1].humidity + "%");
 
         // //Day 3
         dayThreeTemp = Math.floor((response.daily[2].temp.day - 273.15) * 1.8 + 32);
@@ -320,7 +262,7 @@ $(document).ready(function () {
         $(".dateText3").html(dayThreeDate);
         $("#weatherIcon3").attr("src", weatherIconThree);
         $(".tempText3").html("Temp: " + dayThreeTemp + "\xB0 F");
-        $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
+        $(".humidityText3").html("Humidity: " + response.daily[2].humidity + "%");
 
         // //Day 4
         dayFourTemp = Math.floor((response.daily[3].temp.day - 273.15) * 1.8 + 32);
@@ -336,7 +278,7 @@ $(document).ready(function () {
         $(".dateText4").html(dayFourDate);
         $("#weatherIcon4").attr("src", weatherIconFour);
         $(".tempText4").html("Temp: " + dayFourTemp + "\xB0 F");
-        $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
+        $(".humidityText4").html("Humidity: " + response.daily[3].humidity + "%");
 
         // //Day 5
         dayFiveTemp = Math.floor((response.daily[4].temp.day - 273.15) * 1.8 + 32);
@@ -352,7 +294,7 @@ $(document).ready(function () {
         $(".dateText5").html(dayFiveDate);
         $("#weatherIcon5").attr("src", weatherIconFive);
         $(".tempText5").html("Temp: " + dayFiveTemp + "\xB0 F");
-        $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
+        $(".humidityText5").html("Humidity: " + response.daily[4].humidity + "%");
       });
 
     });
