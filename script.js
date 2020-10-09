@@ -105,7 +105,7 @@ $(document).ready(function () {
 
         $(".dateText1").html(dayOneDate);
         $("#weatherIcon1").attr("src", weatherIconOne);
-        $(".tempText1").html("Temperature: " + dayOneTemp + "\xB0 F");
+        $(".tempText1").html("Temp: " + dayOneTemp + "\xB0 F");
         $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
 
         // //Day 2
@@ -121,7 +121,7 @@ $(document).ready(function () {
 
         $(".dateText2").html(dayTwoDate);
         $("#weatherIcon2").attr("src", weatherIconTwo);
-        $(".tempText2").html("Temperature: " + dayTwoTemp + "\xB0 F");
+        $(".tempText2").html("Temp: " + dayTwoTemp + "\xB0 F");
         $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
 
         // //Day 3
@@ -137,7 +137,7 @@ $(document).ready(function () {
 
         $(".dateText3").html(dayThreeDate);
         $("#weatherIcon3").attr("src", weatherIconThree);
-        $(".tempText3").html("Temperature: " + dayThreeTemp + "\xB0 F");
+        $(".tempText3").html("Temp: " + dayThreeTemp + "\xB0 F");
         $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
 
         // //Day 4
@@ -153,7 +153,7 @@ $(document).ready(function () {
 
         $(".dateText4").html(dayFourDate);
         $("#weatherIcon4").attr("src", weatherIconFour);
-        $(".tempText4").html("Temperature: " + dayFourTemp + "\xB0 F");
+        $(".tempText4").html("Temp: " + dayFourTemp + "\xB0 F");
         $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
 
         // //Day 5
@@ -169,7 +169,7 @@ $(document).ready(function () {
 
         $(".dateText5").html(dayFiveDate);
         $("#weatherIcon5").attr("src", weatherIconFive);
-        $(".tempText5").html("Temperature: " + dayFiveTemp + "\xB0 F");
+        $(".tempText5").html("Temp: " + dayFiveTemp + "\xB0 F");
         $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
 
       });
@@ -287,7 +287,7 @@ $(document).ready(function () {
 
         $(".dateText1").html(dayOneDate);
         $("#weatherIcon1").attr("src", weatherIconOne);
-        $(".tempText1").html("Temperature: " + dayOneTemp + "\xB0 F");
+        $(".tempText1").html("Temp: " + dayOneTemp + "\xB0 F");
         $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
 
         // //Day 2
@@ -303,7 +303,7 @@ $(document).ready(function () {
 
         $(".dateText2").html(dayTwoDate);
         $("#weatherIcon2").attr("src", weatherIconTwo);
-        $(".tempText2").html("Temperature: " + dayTwoTemp + "\xB0 F");
+        $(".tempText2").html("Temp: " + dayTwoTemp + "\xB0 F");
         $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
 
         // //Day 3
@@ -319,7 +319,7 @@ $(document).ready(function () {
 
         $(".dateText3").html(dayThreeDate);
         $("#weatherIcon3").attr("src", weatherIconThree);
-        $(".tempText3").html("Temperature: " + dayThreeTemp + "\xB0 F");
+        $(".tempText3").html("Temp: " + dayThreeTemp + "\xB0 F");
         $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
 
         // //Day 4
@@ -335,7 +335,7 @@ $(document).ready(function () {
 
         $(".dateText4").html(dayFourDate);
         $("#weatherIcon4").attr("src", weatherIconFour);
-        $(".tempText4").html("Temperature: " + dayFourTemp + "\xB0 F");
+        $(".tempText4").html("Temp: " + dayFourTemp + "\xB0 F");
         $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
 
         // //Day 5
@@ -351,7 +351,7 @@ $(document).ready(function () {
 
         $(".dateText5").html(dayFiveDate);
         $("#weatherIcon5").attr("src", weatherIconFive);
-        $(".tempText5").html("Temperature: " + dayFiveTemp + "\xB0 F");
+        $(".tempText5").html("Temp: " + dayFiveTemp + "\xB0 F");
         $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
       });
 

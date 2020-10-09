@@ -45,6 +45,9 @@ aside {
   margin-top: 20px;
 }
 
+h5 {
+  font-size: 1.1rem;
+}
 
 /* Classes for CurrentUV */
 .favorable {
