@@ -88,8 +88,9 @@ $(document).ready(function () {
           $(".currentUV").addClass("severe")
           $(".currentUV").removeClass("favorable moderate")
         }
-        // //Five Day Forecast - date, temp, humidity
-        // //Day 1 -- REMEMBER THAT THIS IS AN ARRAYYYYYY 
+
+        // Five Day Forecast
+        // //Day 1
         dayOneTemp = Math.floor((response.daily[0].temp.day - 273.15) * 1.8 + 32);
         var ts = response.daily[0].dt
         var ts_ms = ts * 1000;
@@ -97,21 +98,79 @@ $(document).ready(function () {
         var year = date_ob.getFullYear();
         var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
         var date = ("0" + date_ob.getDate()).slice(-2);
-        var dayOneDate = (date + "/" + month + "/" + year)
+        var dayOneDate = (month + "/" + date + "/" + year)
         var weatherIconOne = "http://openweathermap.org/img/wn/" + response.daily[0].weather[0].icon + "@2x.png"
 
         console.log(weatherIconOne)
 
         $(".dateText1").html(dayOneDate);
-        $("#weatherIcon1").append('<img src="' + weatherIconOne + '"/>');
+        $("#weatherIcon1").attr("src", weatherIconOne);
         $(".tempText1").html("Temperature: " + dayOneTemp + "\xB0 F");
         $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
 
         // //Day 2
-        // //Day 3
-        // //Day 4
-        // //Day 5
+        dayTwoTemp = Math.floor((response.daily[1].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[1].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayTwoDate = (month + "/" + date + "/" + year)
+        var weatherIconTwo = "http://openweathermap.org/img/wn/" + response.daily[1].weather[0].icon + "@2x.png"
 
+        $(".dateText2").html(dayTwoDate);
+        $("#weatherIcon2").attr("src", weatherIconTwo);
+        $(".tempText2").html("Temperature: " + dayTwoTemp + "\xB0 F");
+        $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
+
+        // //Day 3
+        dayThreeTemp = Math.floor((response.daily[2].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[2].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayThreeDate = (month + "/" + date + "/" + year)
+        var weatherIconThree = "http://openweathermap.org/img/wn/" + response.daily[2].weather[0].icon + "@2x.png"
+
+        $(".dateText3").html(dayThreeDate);
+        $("#weatherIcon3").attr("src", weatherIconThree);
+        $(".tempText3").html("Temperature: " + dayThreeTemp + "\xB0 F");
+        $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
+
+        // //Day 4
+        dayFourTemp = Math.floor((response.daily[3].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[3].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayFourDate = (month + "/" + date + "/" + year)
+        var weatherIconFour = "http://openweathermap.org/img/wn/" + response.daily[3].weather[0].icon + "@2x.png"
+
+        $(".dateText4").html(dayFourDate);
+        $("#weatherIcon4").attr("src", weatherIconFour);
+        $(".tempText4").html("Temperature: " + dayFourTemp + "\xB0 F");
+        $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
+
+        // //Day 5
+        dayFiveTemp = Math.floor((response.daily[4].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[4].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayFiveDate = (month + "/" + date + "/" + year)
+        var weatherIconFive = "http://openweathermap.org/img/wn/" + response.daily[4].weather[0].icon + "@2x.png"
+
+        $(".dateText5").html(dayFiveDate);
+        $("#weatherIcon5").attr("src", weatherIconFive);
+        $(".tempText5").html("Temperature: " + dayFiveTemp + "\xB0 F");
+        $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
 
       });
 
@@ -212,6 +271,88 @@ $(document).ready(function () {
           $(".currentUV").removeClass("favorable moderate")
         }
 
+        // Five Day Forecast
+        // //Day 1
+        dayOneTemp = Math.floor((response.daily[0].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[0].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayOneDate = (month + "/" + date + "/" + year)
+        var weatherIconOne = "http://openweathermap.org/img/wn/" + response.daily[0].weather[0].icon + "@2x.png"
+
+        console.log(weatherIconOne)
+
+        $(".dateText1").html(dayOneDate);
+        $("#weatherIcon1").attr("src", weatherIconOne);
+        $(".tempText1").html("Temperature: " + dayOneTemp + "\xB0 F");
+        $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
+
+        // //Day 2
+        dayTwoTemp = Math.floor((response.daily[1].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[1].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayTwoDate = (month + "/" + date + "/" + year)
+        var weatherIconTwo = "http://openweathermap.org/img/wn/" + response.daily[1].weather[0].icon + "@2x.png"
+
+        $(".dateText2").html(dayTwoDate);
+        $("#weatherIcon2").attr("src", weatherIconTwo);
+        $(".tempText2").html("Temperature: " + dayTwoTemp + "\xB0 F");
+        $(".humidityText2").html("Humidity: " + response.daily[1].humidity);
+
+        // //Day 3
+        dayThreeTemp = Math.floor((response.daily[2].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[2].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayThreeDate = (month + "/" + date + "/" + year)
+        var weatherIconThree = "http://openweathermap.org/img/wn/" + response.daily[2].weather[0].icon + "@2x.png"
+
+        $(".dateText3").html(dayThreeDate);
+        $("#weatherIcon3").attr("src", weatherIconThree);
+        $(".tempText3").html("Temperature: " + dayThreeTemp + "\xB0 F");
+        $(".humidityText3").html("Humidity: " + response.daily[2].humidity);
+
+        // //Day 4
+        dayFourTemp = Math.floor((response.daily[3].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[3].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayFourDate = (month + "/" + date + "/" + year)
+        var weatherIconFour = "http://openweathermap.org/img/wn/" + response.daily[3].weather[0].icon + "@2x.png"
+
+        $(".dateText4").html(dayFourDate);
+        $("#weatherIcon4").attr("src", weatherIconFour);
+        $(".tempText4").html("Temperature: " + dayFourTemp + "\xB0 F");
+        $(".humidityText4").html("Humidity: " + response.daily[3].humidity);
+
+        // //Day 5
+        dayFiveTemp = Math.floor((response.daily[4].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[4].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayFiveDate = (month + "/" + date + "/" + year)
+        var weatherIconFive = "http://openweathermap.org/img/wn/" + response.daily[4].weather[0].icon + "@2x.png"
+
+        $(".dateText5").html(dayFiveDate);
+        $("#weatherIcon5").attr("src", weatherIconFive);
+        $(".tempText5").html("Temperature: " + dayFiveTemp + "\xB0 F");
+        $(".humidityText5").html("Humidity: " + response.daily[4].humidity);
       });
 
     });
