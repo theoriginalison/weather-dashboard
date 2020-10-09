@@ -198,12 +198,17 @@ $(document).ready(function () {
         var UVNumber = parseFloat(response.current.uvi)
         if (UVNumber < 3) {
           $(".currentUV").addClass("favorable")
+          $(".currentUV").removeClass("moderate severe")
         }
-        else if (UVNumber > 3) {
+        else if (UVNumber >= 3) {
           $(".currentUV").addClass("moderate")
+          $(".currentUV").removeClass("favorable severe")
+
         }
-        else if (UVNumber > 7) {
+        else if (UVNumber >= 8) {
           $(".currentUV").addClass("severe")
+          $(".currentUV").removeClass("favorable moderate")
+
         }
 
       });
