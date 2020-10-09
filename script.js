@@ -44,43 +44,21 @@ $(document).ready(function () {
       var d = new Date();
       var todaysDate =
         (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
-      //use [i] and a for loop to add a day to the date for the five day forecast
-      //OR JK use date javascript thing (line 44) bc in the 5 day you get UNIX time - new Date
 
       var tempF = Math.floor((response.main.temp - 273.15) * 1.8 + 32);
       var cityImage = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
       console.log(cityImage)
       console.log(response.weather[0].icon)
-      $("#cityNameText").html(response.name + " " + todaysDate); // + response.weather.icon - need to create this first as a variable
-      $('.cityImage').append('<img src="' + cityImage + '"/>')
+      $("#cityNameText").html(response.name + " " + todaysDate);
+      $('.cityImage').append('<img src="' + cityImage + '"/>');
       $(".currentHumidity").html("Current Humidity: " + response.main.humidity);
       $(".currentTemp").html("Current Temperature: " + tempF + "\xB0 F");
       $(".currentWind").html(
         "Current Wind Speed: " + response.wind.speed + "MPH"
       );
 
-      //response.daily[0].ts
 
 
-      // //Five Day Forecast - date, temp, humidity
-      // //Day 1 -- REMEMBER THAT THIS IS AN ARRAYYYYYY 
-      //   dayOneTemp = Math.floor((response.daily[0].temp.day - 273.15) * 1.8 + 32);
-      // var ts = response.daily[0].dt
-      // var ts_ms = ts * 1000;
-      // var date_ob = new Date(ts_ms);
-      // var year = date_ob.getFullYear();
-      // var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-      // var date = ("0" + date_ob.getDate()).slice(-2);
-
-      //   $(".dateText1").html();
-      //   $("#weatherIcon1").html();
-      //   $(".tempText1").html("Current Temperature: " + dayOneTemp + "\xB0 F");
-      //   $(".humidityText1").html("Current Humidity: " + response.daily[0].humidity);
-
-      // //Day 2
-      // //Day 3
-      // //Day 4
-      // //Day 5
 
 
 
@@ -110,6 +88,30 @@ $(document).ready(function () {
           $(".currentUV").addClass("severe")
           $(".currentUV").removeClass("favorable moderate")
         }
+        // //Five Day Forecast - date, temp, humidity
+        // //Day 1 -- REMEMBER THAT THIS IS AN ARRAYYYYYY 
+        dayOneTemp = Math.floor((response.daily[0].temp.day - 273.15) * 1.8 + 32);
+        var ts = response.daily[0].dt
+        var ts_ms = ts * 1000;
+        var date_ob = new Date(ts_ms);
+        var year = date_ob.getFullYear();
+        var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        var date = ("0" + date_ob.getDate()).slice(-2);
+        var dayOneDate = (date + "/" + month + "/" + year)
+        var weatherIconOne = "http://openweathermap.org/img/wn/" + response.daily[0].weather[0].icon + "@2x.png"
+
+        console.log(weatherIconOne)
+
+        $(".dateText1").html(dayOneDate);
+        $("#weatherIcon1").append('<img src="' + weatherIconOne + '"/>');
+        $(".tempText1").html("Temperature: " + dayOneTemp + "\xB0 F");
+        $(".humidityText1").html("Humidity: " + response.daily[0].humidity);
+
+        // //Day 2
+        // //Day 3
+        // //Day 4
+        // //Day 5
+
 
       });
 
