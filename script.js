@@ -97,17 +97,18 @@ $(document).ready(function () {
         console.log(response.current.uvi);
         $(".currentUV").html("Current UV Index: " + response.current.uvi)
 
-
-        //THIS NEEDS TO GO IN BOTH PLACES!!
         var UVNumber = parseFloat(response.current.uvi)
         if (UVNumber < 3) {
           $(".currentUV").addClass("favorable")
+          $(".currentUV").removeClass("moderate severe")
         }
-        else if (UVNumber > 3) {
+        else if (UVNumber >= 3 && UVNumber < 8) {
           $(".currentUV").addClass("moderate")
+          $(".currentUV").removeClass("favorable severe")
         }
-        else if (UVNumber > 7) {
+        else {
           $(".currentUV").addClass("severe")
+          $(".currentUV").removeClass("favorable moderate")
         }
 
       });
@@ -200,15 +201,13 @@ $(document).ready(function () {
           $(".currentUV").addClass("favorable")
           $(".currentUV").removeClass("moderate severe")
         }
-        else if (UVNumber >= 3) {
+        else if (UVNumber >= 3 && UVNumber < 8) {
           $(".currentUV").addClass("moderate")
           $(".currentUV").removeClass("favorable severe")
-
         }
-        else if (UVNumber >= 8) {
+        else {
           $(".currentUV").addClass("severe")
           $(".currentUV").removeClass("favorable moderate")
-
         }
 
       });
