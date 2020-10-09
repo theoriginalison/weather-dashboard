@@ -59,13 +59,23 @@ $(document).ready(function () {
         "Current Wind Speed: " + response.wind.speed + "MPH"
       );
 
+      //response.daily[0].ts
+
+
       // //Five Day Forecast - date, temp, humidity
-      // //Day 1
-      //   dayOneTemp = Math.floor((response.daily.temp.day - 273.15) * 1.8 + 32);
+      // //Day 1 -- REMEMBER THAT THIS IS AN ARRAYYYYYY 
+      //   dayOneTemp = Math.floor((response.daily[0].temp.day - 273.15) * 1.8 + 32);
+      // var ts = response.daily[0].dt
+      // var ts_ms = ts * 1000;
+      // var date_ob = new Date(ts_ms);
+      // var year = date_ob.getFullYear();
+      // var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+      // var date = ("0" + date_ob.getDate()).slice(-2);
+
       //   $(".dateText1").html();
       //   $("#weatherIcon1").html();
       //   $(".tempText1").html("Current Temperature: " + dayOneTemp + "\xB0 F");
-      //   $(".humidityText1").html("Current Humidity: " + response.daily.humidity);
+      //   $(".humidityText1").html("Current Humidity: " + response.daily[0].humidity);
 
       // //Day 2
       // //Day 3
@@ -86,9 +96,19 @@ $(document).ready(function () {
       }).then(function (response) {
         console.log(response.current.uvi);
         $(".currentUV").html("Current UV Index: " + response.current.uvi)
-        //need uvi as a value?
-        //var uviColor = //need uvi as a value to create an if/else statement w colors for favorable moderate severe--already added in the CSS
-        //The UVI is coming in as a string and it needs to be an integer-- use parseFloat to do this, to be converted to a real decimal number-- Float is an old C++ term
+
+
+        //THIS NEEDS TO GO IN BOTH PLACES!!
+        var UVNumber = parseFloat(response.current.uvi)
+        if (UVNumber < 3) {
+          $(".currentUV").addClass("favorable")
+        }
+        else if (UVNumber > 3) {
+          $(".currentUV").addClass("moderate")
+        }
+        else if (UVNumber > 7) {
+          $(".currentUV").addClass("severe")
+        }
 
       });
 
@@ -115,8 +135,6 @@ $(document).ready(function () {
   $("#previousSearchList").on("click", ".oldCity", function (event) {
     event.preventDefault();
 
-
-    //this line below will need to be changed in the copy and paste
     var city = $(this).text();
     console.log(city)
 
@@ -176,8 +194,17 @@ $(document).ready(function () {
       }).then(function (response) {
         console.log(response.current.uvi);
         $(".currentUV").html("Current UV Index: " + response.current.uvi)
-        //need uvi as a value?
-        //var uviColor = //need uvi as a value to create an if/else statement w colors for favorable moderate severe--already added in the CSS
+
+        var UVNumber = parseFloat(response.current.uvi)
+        if (UVNumber < 3) {
+          $(".currentUV").addClass("favorable")
+        }
+        else if (UVNumber > 3) {
+          $(".currentUV").addClass("moderate")
+        }
+        else if (UVNumber > 7) {
+          $(".currentUV").addClass("severe")
+        }
 
       });
 
