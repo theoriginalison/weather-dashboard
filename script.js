@@ -42,20 +42,20 @@ $(document).ready(function () {
         url: queryURLBig,
         method: "GET",
       }).then(function (response) {
-        $(".currentUV").html("Current UV Index: " + response.current.uvi)
+        $("#uvColor").text(response.current.uvi)
 
         var UVNumber = parseFloat(response.current.uvi)
         if (UVNumber < 3) {
-          $(".currentUV").addClass("favorable")
-          $(".currentUV").removeClass("moderate severe")
+          $("#uvColor").addClass("favorable")
+          $("#uvColor").removeClass("moderate severe")
         }
         else if (UVNumber >= 3 && UVNumber < 8) {
-          $(".currentUV").addClass("moderate")
-          $(".currentUV").removeClass("favorable severe")
+          $("#uvColor").addClass("moderate")
+          $("#uvColor").removeClass("favorable severe")
         }
         else {
-          $(".currentUV").addClass("severe")
-          $(".currentUV").removeClass("favorable moderate")
+          $("#uvColor").addClass("severe")
+          $("#uvColor").removeClass("favorable moderate")
         }
 
         //creating the for loop to iterate through the days - set up one and make sure it works, and THEN go back and replace it w "i"
